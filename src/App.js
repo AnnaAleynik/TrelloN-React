@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+import defaultTheme from './config/theme/default';
 import './App.css';
+import Examples from './examples';
+
+const initialList = [{name: 'Download and try to install Eslint and Prettier'}];
 
 function App() {
+  const [list, setList] = useState(initialList);
+  const addToList = (newElement) => setList([...list, { name: newElement}]);
+  const exampleProps = {
+    size: 5,
+    error: false,
+    list,
+    addToList
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StyledThemeProvider theme={defaultTheme}>
+      <div className="App">
+        <Examples {...exampleProps}>Ex one</Examples>
+      </div>
+    </StyledThemeProvider>
   );
 }
 
