@@ -1,28 +1,29 @@
-import { useState } from 'react';
-import { ThemeProvider as StyledThemeProvider } from 'styled-components';
-import defaultTheme from './config/theme/default';
-import './App.css';
-import Examples from './examples';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import TasksPage from './components/pages/TasksPage';
+import Home from './components/pages/Home';
+import routes from './config/routes';
+import TaskPage from './components/pages/TaskPage';
+// import ToDoPage from './components/pages/ToDoPage';
 
-const initialList = [{name: 'Download and try to install Eslint and Prettier'}];
+// const initialList = [{ text: 'Позвтракать' }, { text: 'Не опаздать' }];
 
-function App() {
-  const [list, setList] = useState(initialList);
-  const addToList = (newElement) => setList([...list, { name: newElement}]);
-  const exampleProps = {
-    size: 5,
-    error: false,
-    list,
-    addToList
-  };
-
+const App = () => {
+  const { HOME, TASKS, TASK } = routes;
   return (
-    <StyledThemeProvider theme={defaultTheme}>
-      <div className="App">
-        <Examples {...exampleProps}>Ex one</Examples>
-      </div>
-    </StyledThemeProvider>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path={HOME}>
+          <Home />
+        </Route>
+        <Route exact path={TASKS}>
+          <TasksPage />
+        </Route>
+        <Route path={TASK}>
+          <TaskPage />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
