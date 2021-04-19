@@ -17,11 +17,11 @@ const ToDoList = (props) => {
   const { list, onRemove, onCheck } = props;
   return (
     <List>
-      {list.map(({ text, checked, id }, i) => (
+      {list.map(({ ttitle, checked, id }, i) => (
         <ToDoListItem key={`${id}`} checked={checked} id ={id}>
           <CheckBox onChange={(ev) => onCheck(ev, i)} checked={checked} />
           <Link to={`tasks/${id}`}>
-            {text}
+            {title}
           </Link>
           <StyledButton error outlined={false} onClick={() => onRemove(i)}>
             X
