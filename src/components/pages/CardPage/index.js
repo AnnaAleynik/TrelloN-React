@@ -1,3 +1,3 @@
-import CardPage from './Cardage';
+import CardPage from './CardPage';
 
 export default CardPage;

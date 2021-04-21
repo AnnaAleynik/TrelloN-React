@@ -43,13 +43,6 @@ const CardsPage = () => {
     setList(initialList);
   };
 
-  const handleCheck = (ev, i) => {
-    const {
-      target: { checked },
-    } = ev;
-    setList((currentList) => currentList.map((listItem, index) => (i === index ? { ...listItem, checked } : listItem)));
-  };
-
   return (
     <DefaultTemplate>
       <Wrapper>

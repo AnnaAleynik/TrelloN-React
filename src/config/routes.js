@@ -2,6 +2,6 @@
 export default {
   HOME: '/',
   CARDS: '/cards',
-  TASKS: '/cards/:id',
+  CARD: '/cards/:id',
   TASK: '/cards/:c_id/tasks/:id'
 };
