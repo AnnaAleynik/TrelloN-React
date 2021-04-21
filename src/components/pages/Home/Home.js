@@ -4,7 +4,7 @@ import DefaultTemplate from '../../templates/DefaultTemplate';
 
 const Home = () => (
   <DefaultTemplate>
-    <Link to={routes.TASKS}>See tasks</Link>
+    <Link to={routes.CARDS}>See cards!</Link>
   </DefaultTemplate>
 );
 

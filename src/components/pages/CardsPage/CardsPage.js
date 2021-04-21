@@ -1,10 +1,9 @@
-// import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import ToDoList from '../../molecules/ToDoList';
-import DefaultTemplate from '../../templates/DefaultTemplate';
+import CardList from '../../molecules/CardList';
 import ToDoForm from '../../molecules/ToDoForm';
 import Button from '../../atoms/Button';
+import DefaultTemplate from '../../templates/DefaultTemplate';
 import useToDo from '../../../hooks/useToDo';
 
 const Wrapper = styled.div`
@@ -17,9 +16,7 @@ const Title = styled.h1`
   font-size: 20px;
 `;
 
-const CardPage = () => {
-  // const { id: queryId } = useParams();
-
+const CardsPage = () => {
   const { list: initialList, updateList } = useToDo();
 
   const [list, setList] = useState(initialList);
@@ -46,19 +43,12 @@ const CardPage = () => {
     setList(initialList);
   };
 
-  const handleCheck = (ev, i) => {
-    const {
-      target: { checked },
-    } = ev;
-    setList((currentList) => currentList.map((listItem, index) => (i === index ? { ...listItem, checked } : listItem)));
-  };
-
   return (
     <DefaultTemplate>
       <Wrapper>
-        <Title>ToDoPage</Title>
+        <Title>Your Cards</Title>
         <ToDoForm onSubmit={onAddNewListItem} />
-        <ToDoList list={list} onRemove={handleRemove} onCheck={handleCheck} />
+        <CardList list={list} onRemove={handleRemove} />
         {listUnSaved && (
           <div>
             <Button onClick={onDismiss}>Dismiss</Button>
@@ -72,4 +62,4 @@ const CardPage = () => {
   );
 };
 
-export default CardPage;
+export default CardsPage;
