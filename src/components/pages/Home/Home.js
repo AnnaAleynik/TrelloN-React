@@ -4,7 +4,9 @@ import DefaultTemplate from '../../templates/DefaultTemplate';
 
 const Home = () => (
   <DefaultTemplate>
-    <Link to={routes.CARDS}>See cards!</Link>
+    <p>
+      <Link to={routes.CARDS_WITH_GRAPHQL}>See cards with GraphQL!</Link>
+    </p>
   </DefaultTemplate>
 );
 

@@ -12,10 +12,15 @@ const Content = styled.section`
   margin: 0 auto;
 `;
 
-const DefaultTemplate = ({ children }) => (
-  <Wrapper>
-    <Content>{children}</Content>
-  </Wrapper>
-);
+const DefaultTemplate = ({ children, loading }) => {
+  if (loading){
+    return <p>loading...</p>
+  }
+  return (
+    <Wrapper>
+      <Content>{children}</Content>
+    </Wrapper>
+  );
+}
 
 export default DefaultTemplate;
