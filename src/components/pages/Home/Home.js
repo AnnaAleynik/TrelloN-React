@@ -5,10 +5,7 @@ import DefaultTemplate from '../../templates/DefaultTemplate';
 const Home = () => (
   <DefaultTemplate>
     <p>
-      <Link to={routes.TASKS}>See cards!</Link>
-    </p>
-    <p>
-      <Link to={routes.TASKS_WITH_GRAPHQL}>See tasks with GraphQL</Link>
+      <Link to={routes.CARDS_WITH_GRAPHQL}>See cards with GraphQL!</Link>
     </p>
   </DefaultTemplate>
 );

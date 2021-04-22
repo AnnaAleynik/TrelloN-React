@@ -17,7 +17,7 @@ const ToDoList = (props) => {
   const { list, onRemove, onCheck } = props;
   return (
     <List>
-      {list.map(({ ttitle, checked, id }, i) => (
+      {list.map(({ title, checked, id }, i) => (
         <ToDoListItem key={`${id}`} checked={checked} id ={id}>
           <CheckBox onChange={(ev) => onCheck(ev, i)} checked={checked} />
           <Link to={`tasks/${id}`}>
