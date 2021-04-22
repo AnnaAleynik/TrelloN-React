@@ -20,7 +20,7 @@ const ToDoList = (props) => {
       {list.map(({ text, checked, id }, i) => (
         <ToDoListItem key={`${id}`} checked={checked} id ={id}>
           <CheckBox onChange={(ev) => onCheck(ev, i)} checked={checked} />
-          <Link to={`tasks/${id}`}>
+          <Link to={`/tasks/${id}`}>
             {text}
           </Link>
           <StyledButton error outlined={false} onClick={() => onRemove(i)}>
@@ -28,7 +28,7 @@ const ToDoList = (props) => {
           </StyledButton>
         </ToDoListItem>
     ))}
-  </List>
+    </List>
   );
 };
 

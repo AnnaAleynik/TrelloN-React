@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import CardList from '../../molecules/CardList';
-import ToDoForm from '../../molecules/ToDoForm';
+import CardForm from '../../molecules/CardForm';
 import Button from '../../atoms/Button';
 import DefaultTemplate from '../../templates/DefaultTemplate';
 import useToDo from '../../../hooks/useToDo';
@@ -47,7 +47,7 @@ const CardsPage = () => {
     <DefaultTemplate>
       <Wrapper>
         <Title>Your Cards</Title>
-        <ToDoForm onSubmit={onAddNewListItem} />
+        <CardForm onSubmit={onAddNewListItem} />
         <CardList list={list} onRemove={handleRemove} />
         {listUnSaved && (
           <div>

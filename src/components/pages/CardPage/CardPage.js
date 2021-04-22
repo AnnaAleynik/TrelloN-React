@@ -1,5 +1,6 @@
 // import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ToDoList from '../../molecules/ToDoList';
 import DefaultTemplate from '../../templates/DefaultTemplate';
@@ -57,6 +58,9 @@ const CardPage = () => {
     <DefaultTemplate>
       <Wrapper>
         <Title>ToDoPage</Title>
+        <Link to={`/cards`}>
+            Back to cards
+        </Link>
         <ToDoForm onSubmit={onAddNewListItem} />
         <ToDoList list={list} onRemove={handleRemove} onCheck={handleCheck} />
         {listUnSaved && (
