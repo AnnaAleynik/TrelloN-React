@@ -17,10 +17,10 @@ const ToDoList = (props) => {
   const { list, onRemove, onCheck } = props;
   return (
     <List>
-      {list.map(({ title, checked, id }, i) => (
+      {list.map(({ title, c_id, checked, id }, i) => (
         <ToDoListItem key={`${id}`} checked={checked} id ={id}>
           <CheckBox onChange={(ev) => onCheck(ev, i)} checked={checked} />
-          <Link to={`tasks/${id}`}>
+          <Link to={`${c_id}/tasks/${id}`}>
             {title}
           </Link>
           <StyledButton error outlined={false} onClick={() => onRemove(i)}>
@@ -28,7 +28,7 @@ const ToDoList = (props) => {
           </StyledButton>
         </ToDoListItem>
     ))}
-  </List>
+    </List>
   );
 };
 

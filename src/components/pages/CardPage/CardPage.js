@@ -1,11 +1,13 @@
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import ToDoList from '../../molecules/ToDoList';
 import DefaultTemplate from '../../templates/DefaultTemplate';
 import ToDoForm from '../../molecules/ToDoForm';
 import Button from '../../atoms/Button';
 import useToDo from '../../../hooks/useToDo';
+import todos from '../../../data/todos';
 
 const Wrapper = styled.div`
   display: flex;
@@ -18,9 +20,12 @@ const Title = styled.h1`
 `;
 
 const CardPage = () => {
-  // const { id: queryId } = useParams();
+  const { id: queryId } = useParams();
+  console.log("quey", queryId);
 
-  const { list: initialList, updateList } = useToDo();
+  const tasks = todos.filter(({ c_id }) => c_id === +queryId);
+
+  const { list: initialList, updateList } = useToDo(tasks);
 
   const [list, setList] = useState(initialList);
   const [listUnSaved, setListUnsaved] = useState(false);
@@ -53,10 +58,16 @@ const CardPage = () => {
     setList((currentList) => currentList.map((listItem, index) => (i === index ? { ...listItem, checked } : listItem)));
   };
 
+  let history = useHistory();
+
   return (
     <DefaultTemplate>
       <Wrapper>
         <Title>ToDoPage</Title>
+        <Link to={`/cards`}>
+            Back to cards
+        </Link>
+        <button onClick={history.goBack}>Back</button>
         <ToDoForm onSubmit={onAddNewListItem} />
         <ToDoList list={list} onRemove={handleRemove} onCheck={handleCheck} />
         {listUnSaved && (

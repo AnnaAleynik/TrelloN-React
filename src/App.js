@@ -30,7 +30,7 @@ const App = () => {
         <Route exact path={CARDS_WITH_GRAPHQL}>
           <CardsPageWithGraphQL />
         </Route>
-        <Route path={TASK}>
+        <Route exact path={TASK}>
           <TaskPage />
         </Route>
       </Switch>
