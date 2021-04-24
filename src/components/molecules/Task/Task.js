@@ -10,12 +10,18 @@ const Title = styled.h1`
   font-size: 20px;
 `;
 
+const Description = styled.h3`
+  font-size: 16px;
+`;
+
 const Task = ({ todo }) => {
-  const { text } = todo;
+  const { title } = todo;
+  const { description } = todo;
 
   return (
     <TaskCard>
-      <Title>{text}</Title>
+      <Title>{title}</Title>
+      <Description>{description}</Description>
     </TaskCard>
   );
 };

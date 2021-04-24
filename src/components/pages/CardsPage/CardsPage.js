@@ -4,7 +4,7 @@ import CardList from '../../molecules/CardList';
 import CardForm from '../../molecules/CardForm';
 import Button from '../../atoms/Button';
 import DefaultTemplate from '../../templates/DefaultTemplate';
-import useToDo from '../../../hooks/useToDo';
+import useCardToDo from '../../../hooks/useCardToDo';
 
 const Wrapper = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ const Title = styled.h1`
 `;
 
 const CardsPage = () => {
-  const { list: initialList, updateList } = useToDo();
+  const { list: initialList, updateList } = useCardToDo();
 
   const [list, setList] = useState(initialList);
   const [listUnSaved, setListUnsaved] = useState(false);
@@ -31,7 +31,7 @@ const CardsPage = () => {
   }, [initialList, list, listUnSaved]);
 
   const onAddNewListItem = (value) => {
-    setList([...list, { text: value }]);
+    setList([...list, { title: value }]);
   };
   const handleRemove = (i) => setList(list.filter((elem, index) => i !== index));
 
