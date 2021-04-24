@@ -23,7 +23,7 @@ const App = () => {
         <Route exact path={CARD}>
           <CardPage />
         </Route>
-        <Route path={TASK}>
+        <Route exact path={TASK}>
           <TaskPage />
         </Route>
       </Switch>

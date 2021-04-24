@@ -10,11 +10,11 @@ const Title = styled.h1`
 `;
 
 const Card = ({ todo }) => {
-  const { text } = todo;
+  const { title } = todo;
 
   return (
     <CardCard>
-      <Title>{text}</Title>
+      <Title>{title}</Title>
     </CardCard>
   );
 };

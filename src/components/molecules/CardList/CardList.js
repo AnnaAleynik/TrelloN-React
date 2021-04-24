@@ -16,10 +16,10 @@ const CardList = (props) => {
   const { list, onRemove } = props;
   return (
     <List>
-      {list.map(({ text, id }, i) => (
+      {list.map(({ title, id }, i) => (
         <CardListItem key={`${id}`} id ={id}>
           <Link to={`/cards/${id}`}>
-            {text}
+            {title}
           </Link>
           <StyledButton error outlined={false} onClick={() => onRemove(i)}>
             X

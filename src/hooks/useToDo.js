@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import todos from '../data/todos';
+// import todos from '../data/todos';
 
-const useToDo = () => {
+const useToDo = (todos) => {
+
   const [list, setList] = useState(todos);
 
   return { list, updateList: setList };
