@@ -11,7 +11,7 @@ const Form = styled.div`
   max-width: 300px;
 `;
 
-const defaultValue = 'fgfhgf';
+const defaultValue = '';
 
 const CardForm = ({ disabled, onSubmit }) => {
   const [value, setValue] = useState(defaultValue);
