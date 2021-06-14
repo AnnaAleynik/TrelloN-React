@@ -22,12 +22,16 @@ const CardsPageWithGraphQL = () => {
   const { createCard } = useCreateCard();
   const { remove } = useRemoveCard();
 
+  const onAddCard = async (value) => {
+    await createCard(value);
+  };
+
   return (
     <DefaultTemplate loading={loading}>
       <Wrapper>
         <Title>CardsPage with GraphQL</Title>
         <CardList list={cards} onRemove={ remove }/>
-        <CardForm onSubmit={createCard} />
+        <CardForm onSubmit={onAddCard} />
       </Wrapper>
     </DefaultTemplate>
   );
